@@ -109,8 +109,8 @@ public class tester {
         final int image_height = (int)(image_width / aspect_ratio);
 
         //Performance and Image quality parameters
-        final int samples_per_pixel = 100;
-        final int max_depth = 30;
+        final int samples_per_pixel = 150;
+        final int max_depth = 50;
 
         //World
         Hittable_List world = generateRandomScene();
@@ -150,6 +150,10 @@ public class tester {
             return;
         }
 
+        //Create window/renderer instance
+        WindowFrame frame = new WindowFrame("FZ_Rtrace", image_width, image_height);
+
+
         //Render
         System.out.println("P3\n" + image_width + " " + image_height + "\n255");
         assert fileWriter != null;
@@ -171,7 +175,7 @@ public class tester {
                     Ray ray = cam.getRay(horizontal_offset, vertical_offset);
                     pixel_color.add(rayColor(ray, world, max_depth));
                 }
-                Util.writeColor(fileWriter, pixel_color, samples_per_pixel);
+                Util.writeColor(frame, fileWriter, pixel_color, samples_per_pixel, i, j, image_height);
             }
         }
         long stop = System.nanoTime();

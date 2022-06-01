@@ -11,7 +11,7 @@ public class Util {
         return degrees * pi / 180.0;
     }
 
-    public static void writeColor (FileWriter fileWriter, Vec3 pixelColor, int samples_per_pixel) throws IOException {
+    public static void writeColor (WindowFrame frame, FileWriter fileWriter, Vec3 pixelColor, int samples_per_pixel, int x, int y, int image_height) throws IOException {
         //Writes the translated value [0,255] of each color component
         double red = pixelColor.getX();
         double green = pixelColor.getY();
@@ -25,6 +25,8 @@ public class Util {
         int r = (int)(256 * Util.clamp(red, 0.0, 0.999));
         int g = (int)(256 * Util.clamp(green, 0.0, 0.999));
         int b = (int)(256 * Util.clamp(blue, 0.0, 0.999));
+
+        frame.drawPixel(x, image_height - 1 - y, r, g, b);
 
         fileWriter.write(r + " " + g + " " + b + '\n');
     }

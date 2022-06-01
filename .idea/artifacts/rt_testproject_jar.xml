@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="rt_testproject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FZ_Rtrace_jar</output-path>
+    <root id="archive" name="rt_testproject.jar">
+      <element id="module-output" name="rt_testproject" />
+    </root>
+  </artifact>
+</component>

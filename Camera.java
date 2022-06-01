@@ -1,5 +1,3 @@
-import java.beans.VetoableChangeListenerProxy;
-import java.beans.VetoableChangeSupport;
 
 public class Camera {
 
